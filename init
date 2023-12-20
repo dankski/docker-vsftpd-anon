@@ -11,8 +11,6 @@ MAX_LOGIN_FAILS=${MAX_LOGIN_FAILS:-2}
 MAX_CLIENTS=${MAX_CLIENTS:-50}
 MAX_RATE=${MAX_RATE:-6250000}
 FTPD_BANNER=${FTPD_BANNER:-"Welcome to an awesome public FTP Server"}
-ASCII_UPLOAD_ENABLED=YES
-ASCII_DOWNLOAD_ENABLED=YES
 
 [ -f /etc/vsftpd.conf ] || cat <<EOF > /etc/vsftpd.conf
 listen=YES
@@ -33,8 +31,8 @@ max_login_fails=${MAX_LOGIN_FAILS}
 max_clients=${MAX_CLIENTS}
 anon_max_rate=${MAX_RATE}
 ftpd_banner=${FTPD_BANNER}
-ascii_download_enable=${ASCII_DOWNLOAD_ENABLED}
-ascii_upload_enable=${ASCII_UPLOAD_ENABLED}
+ascii_download_enable=YES
+ascii_upload_enable=YES
 EOF
 
 /usr/sbin/vsftpd "$@"
